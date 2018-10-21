@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> <%= @title %></title>
+  <link rel="stylesheet" href="<%= url('/css/bootstrap.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/bootstrap-grid.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/bootstrap-reboot.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/form.css') %>">
+  <link rel="stylesheet" href="<%= url('modules/bootstrapdatepicker/css/bootstrap-datetimepicker.min.css') %>">
+</head>
+<body>
+<div class="container">
+  <h1><%= @title %></h1>
+  <!--<h6>Когда у администрации появится свободное время, она проверит и добавит новое правонарушение</h6>-->
+  <form method="post" action="/deed/suggest/create" id="form" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="sign">Признак</label>
+      <input class="form-control" required id="sign" name="sign" placeholder="Получение взятки">
+    </div>
+    <div class="form-group">
+      <label for="position">Должность</label>
+      <input class="form-control" required id="position" name="position" placeholder="Министр">
+      <small id="emailHelp" class="form-text text-muted">Должность на момент совершения правонарушения</small>
+    </div>
+    <div class="form-group">
+      <label for="inputDate">Дата</label>
+      <input type="date" required class="form-control" name="date">
+    </div>
+    <div class="form-group">
+      <!--TODO: проверка на целочисленное"-->
+      <label for="detriment">Ущерб</label>
+      <input class="form-control" required id="detriment" name="detriment" placeholder="20000000">
+      <small id="emailHelp" class="form-text text-muted">Вводите только сумму ущерба в рублях</small>
+    </div>
+    <div class="form-group">
+      <label for="region">Регион</label>
+      <!--TODO: проверка на существущий регион"-->
+      <select multiple class="form-control" id="region" name="region">
+        <% @regions.each do |region| %>
+          <option value="<%= region["region"] %>"><%= region["ru_region"] %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="punishment">Мера пресечения</label>
+      <input class="form-control" required id="punishment" name="punishment" placeholder="Домашний арест">
+    </div>
+    <div class="form-group">
+      <label for="status">Отбывание наказания</label>
+      <input class="form-control" required id="status" name="status" placeholder="Ведется расследование">
+    </div>
+    <div class="form-group">
+      <!--TODO: проверка на существование депутат"-->
+
+      <label for="deputy_id">ID депутата, который учавствовал</label>
+      <input class="form-control" required id="deputy_id" name="deputy_id" placeholder="12">
+      <small id="emailHelp" class="form-text text-muted">Посмотрите
+        <a href="/deputies" class="font-weight-bold">здесь</a>, чтобы узнать ID депутата. Если его нет вы можете
+        добавить его
+        <a href="/deputy/suggest" class="font-weight-bold">здесь</a></small>
+    </div>
+    <div class="form-group">
+      <label for="proof_link">Пруф линк</label>
+      <input class="form-control" required id="proof_link0" name="proof_link0" placeholder="https://ria.ru/infografika/20161117/1481606950.html">
+    </div>
+    <div class="btn btn-info proof-link">+</div>
+
+    <button type="submit" class="btn btn-primary">Отправить</button>
+  </form>
+</div>
+
+<script src="<%= url('/js/jquery-3.3.1.min.js') %>"></script>
+<script src="<%= url('modules/bootstrapdatepicker/js/moment-with-locales.js') %>"></script>
+<script src="<%= url('js/bootstrap.min.js') %>"></script>
+<script src="<%= url('modules/bootstrapdatepicker/js/bootstrap-datetimepicker.min.js') %>"></script>
+<script src="<%= url('js/jquery.validate.js') %>"></script>
+<script src="<%= url('js/form.js') %>"></script>
+
+</body>
+</html>

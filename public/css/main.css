@@ -1,0 +1,20 @@
+#vmap {
+    width: 100%;
+    height: 500px;
+}
+
+*[data-href] {
+    cursor: pointer;
+}
+
+.sortby {
+    cursor: pointer;
+}
+
+.deputy-img{
+    width: 400px;
+}
+
+td .deputy-img{
+    width: 100px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> <%= @title %></title>
+  <link rel="stylesheet" href="<%= url('/css/bootstrap.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/bootstrap-grid.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/bootstrap-reboot.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/main.css') %>">
+
+</head>
+<body>
+<div class="container">
+  <h2><%= @deputy.name %> <%= @deputy.surname %> <%= @deputy.patronymic %></h2>
+  <h5> ID: <%= @deputy.id %></h5>
+  <h6> <%= @deputy.position %></h6>
+  <img class="deputy-img" src="<%= url(@deputy.photo_href) %>" alt="<%= @deputy.name %>">
+  <h5>Список дел</h5>
+  <table class="deputies table table-striped table-hover">
+    <tr class="headline thead-dark">
+      <!--TODO: Адекватный вывод таблицы-->
+      <th>Признак</th>
+      <th>Регион</th>
+      <th>Ущерб</th>
+      <th>Мера пресечения</th>
+      <th>Отбывание наказания</th>
+      <th>Дата</th>
+      <th>Пруф линки</th>
+    </tr>
+    <% @deeds.each do |deed| %>
+      <tr>
+        <td><%= deed.sign %></td>
+        <td><%= deed.ru_region %></td>
+        <td><%= deed.detriment %></td>
+        <td><%= deed.punishment %></td>
+        <td><%= deed.status %></td>
+        <td><%= deed.date %></td>
+        <td>
+          <ul>
+            <% deed.proof_links.each do |link| %>
+              <li> <%= link %> </li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</body>
+</html>

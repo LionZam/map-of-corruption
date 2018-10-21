@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <link href="modules/jqvmap/css/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="<%= url('css/bootstrap.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/bootstrap-grid.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/bootstrap-reboot.min.css') %>">
+  <link rel="stylesheet" href="<%= url('css/main.css') %>">
+  <link rel="stylesheet" href="<%= url('modules/jqvmap/css/jqvmap.css') %>">
+</head>
+<body>
+<div id="vmap"></div>
+<div class="row">
+  <div class="col-6"><h1>Выберите регион</h1></div>
+  <div class="col-6">
+    <div class="buttons float-right">
+      <a href="/deputies" class="btn btn-primary ">Посмотреть существущих депутатов</a>
+      <a href="/deed/suggest" class="btn btn-primary ">Предложить пост</a>
+      <a href="/deputy/suggest" class="btn btn-primary ">Предложить чиновника</a>
+    </div>
+  </div>
+</div>
+<table class="deputies table table-striped table-hover">
+  <tr class="headline thead-dark ">
+    <th>Фото</th>
+    <th>Имя
+      <small class="form-text sortby text-muted" data-sort-by="name">Sort by name</small>
+    </th>
+    <th>Фамилия
+      <small class="form-text sortby text-muted" data-sort-by="name">Sort by surname</small>
+    </th>
+    <th>Отчество
+      <small class="form-text sortby text-muted" data-sort-by="name">Sort by patronymic</small>
+    </th>
+    <th>Должность</th>
+    <th>Признак</th>
+    <th>Ущерб
+      <small class="form-text sortby text-muted" data-sort-by="name">Sort by detriment</small>
+    </th>
+    <th>Мера пресечения</th>
+    <th>Отбывание наказания</th>
+    <th>Дата</th>
+    <th>Пруф линки</th>
+  </tr>
+</table>
+</div>
+<script src="<%= url('/js/jquery-3.3.1.min.js') %>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<!--<script src="js/popper.min.js"></script>-->
+<script src="<%= url('/js/bootstrap.min.js') %>"></script>
+<script src="<%= url('/modules/jqvmap/js/jquery.vmap.js') %>"></script>
+<script src="<%= url('/modules/jqvmap/js/maps/jquery.vmap.russia.js') %>"></script>
+<script src="<%= url('/js/scripts.js') %>"></script>
+</body>
+</html>
