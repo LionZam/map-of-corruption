@@ -25,5 +25,3 @@ def try
   )
 end
 =end
-
-
