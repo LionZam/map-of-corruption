@@ -1,10 +1,12 @@
 require 'sinatra'
+configure {set :server, :puma}
 require 'deeds'
 require 'deputy'
 require 'deputies'
 require 'region'
 require 'json'
 require 'digest'
+
 
 # TODO: Как разгрузить класс?
 get('/region') do
