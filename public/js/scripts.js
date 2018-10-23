@@ -23,7 +23,7 @@ $(document).ready(function () {
         // Клик по региону
         onRegionClick: function (element, code, region) {
             $.getJSON("/region", {region: code}, function (data) {
-                $("h1").text(data["region_name"]);
+                $("h1").text(region);
                 deeds = toHashMap(JSON.parse(data["deeds"]));
                 sortProperties(deeds, sortBy);
                 printDeputies();
